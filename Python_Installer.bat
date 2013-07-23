@@ -1,4 +1,6 @@
-:: Download and install 32-Bit Python 2.7.5 if it's not already installed in the default folder...
+:: Released under the GNU General Public License version 3 by J2897.
+
+:: This will download and install the 32-Bit version of Python 2.7.5 if it's not already installed in the default folder.
 
 @echo OFF
 pushd "%~dp0"
