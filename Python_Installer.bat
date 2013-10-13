@@ -7,7 +7,7 @@ pushd "%~dp0"
 cls
 
 REM Is Python installed?
-if exist %CD:~0,3%Python27\ (echo Python is already installed.) && (goto :End)
+if exist %CD:~0,3%Python27\ (echo Python is already installed.) & (goto :End)
 
 ver | find "Version 6." > nul
 if %ERRORLEVEL% == 0 (
@@ -48,18 +48,18 @@ REM Is the MD5 Hash valid?
 	REM Verify the MD5 Hash...
 	set HASH_DB="%CD%\hashes.dat"
 	%MD5DEEP_EXE% -M %HASH_DB% -b %TEMP_PYTHON_MSI%
-	if %ERRORLEVEL% LEQ 1 (echo MD5 hash verified.) && (goto :Install) else (
+	if %ERRORLEVEL% LEQ 1 (echo MD5 hash verified.) & (goto :Install) else (
 		echo MD5 mismatch. Attempting to continue the download . . .
 	)
 
 :Continue
 curl\curl.exe -C - %URL% -o %TEMP_PYTHON_MSI% && (goto :Install) || (
-	(echo Failed to continue curling.) && (echo Restarting download . . .) && (del %TEMP_PYTHON_MSI%)
+	(echo Failed to continue curling.) & (echo Restarting download . . .) & (del %TEMP_PYTHON_MSI%)
 )
 
 :Download
 curl\curl.exe %URL% -o %TEMP_PYTHON_MSI% || (
-	(echo Failed to curl.) && (goto :End)
+	(echo Failed to curl.) & (goto :End)
 )
 
 :Install
