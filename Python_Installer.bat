@@ -27,7 +27,7 @@ set URL=http://www.python.org/ftp/python/%PYVER%/%FN%
 
 REM Does the installation file already exist?
 if exist "%USERPROFILE%\Downloads\%FN%" (set TEMP_PYTHON_MSI="%USERPROFILE%\Downloads\%FN%") else (
-	if exist "%TEMP%\%FN%" (set TEMP_PYTHON_MSI="%TEMP%\%FN%") else (set TEMP_PYTHON_MSI="%TEMP%\%FN%") && (goto :Download)
+	if exist "%TEMP%\%FN%" (set TEMP_PYTHON_MSI="%TEMP%\%FN%") else (set TEMP_PYTHON_MSI="%TEMP%\%FN%") & (goto :Download)
 )
 
 REM Is the MD5 Hash valid?
